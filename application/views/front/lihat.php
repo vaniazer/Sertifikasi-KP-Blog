@@ -8,12 +8,6 @@
             <div class="card-body ">
 
                 <div class="form-group">
-                    <center>
-                        <img src="<?= base_url('assets/gambar/'.$tambah->gambar) ?>" class="img-fluid" width="800" height="400">
-                    </center>
-                </div>
-                <hr>
-                <div class="form-group">
                     <p><?= $tambah->deskripsi ?></p>
                 </div>
                 <hr>
