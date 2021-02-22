@@ -18,13 +18,13 @@ class Kategori extends CI_Controller
        $tambah = $this->M_kategori->tambah($data);
        if($tambah){ //JIka Berhasil Menambah
 
-            $this->session->set_flashdata('pesan', 'Berhasil Menambah Kategori');
+            $this->session->set_flashdata('kategori', 'Berhasil Menambah Kategori');
             //Langsung menuju ke Laman Kategori
             redirect('admin/kategori');
 
         }else{
 
-            $this->session->set_flashdata('pesan','Gagal Menambah Kategori');
+            $this->session->set_flashdata('kategori','Gagal Menambah Kategori');
             redirect('admin/kategori');
         }
 
@@ -40,10 +40,10 @@ class Kategori extends CI_Controller
 
         $edit = $this->M_kategori->edit($id_kategori, $data);
         if($edit){ //Berhasil menghapus
-            $this->session->set_flashdata('pesan', 'Berhasil Update Kategori');
+            $this->session->set_flashdata('kategori', 'Berhasil Update Kategori');
             redirect('admin/kategori');
         }else{
-            $this->session->set_flashdata('pesan','Gagal Update Kategori');
+            $this->session->set_flashdata('kategori','Gagal Update Kategori');
             redirect('admin/kategori');
         }
     }
@@ -52,10 +52,10 @@ class Kategori extends CI_Controller
     {
         $hapus = $this->M_kategori->hapus($id_kategori);
         if($hapus){ //Berhasil menghapus
-            $this->session->set_flashdata('pesan', 'Berhasil Menghapus Kategori');
+            $this->session->set_flashdata('kategori', 'Berhasil Menghapus Kategori');
             redirect('admin/kategori');
         }else{
-            $this->session->set_flashdata('pesan','Gagal Menghapus Kategori');
+            $this->session->set_flashdata('kategori','Gagal Menghapus Kategori');
             redirect('admin/kategori');
         }
     }

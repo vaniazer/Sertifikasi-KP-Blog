@@ -63,10 +63,10 @@ class Tambah extends CI_Controller
 
         $ke_edit = $this->M_tambah->edit($id_resep, $data);
         if($ke_edit){ //Berhasil menghapus
-            $this->session->set_flashdata('pesan', 'Berhasil Update Resep');
+            $this->session->set_flashdata('resep', 'Berhasil Update Resep');
             redirect('admin/tambah');
         }else{
-            $this->session->set_flashdata('pesan','Gagal Update Resep');
+            $this->session->set_flashdata('resep','Gagal Update Resep');
             redirect('admin/tambah');
         }
     }
@@ -98,17 +98,17 @@ class Tambah extends CI_Controller
             $insert = $this->M_tambah->tambah($data);
 
             if($insert){
-                $this->session->set_flashdata('pesan', 'Berhasil Menambahkan Data Resep');
+                $this->session->set_flashdata('resep', 'Berhasil Menambahkan Data Resep');
                 redirect('admin/tambah');
             }else{
-                $this->session->set_flashdata('pesan','Gagal Menambah Data Resep');
+                $this->session->set_flashdata('resep','Gagal Menambah Data Resep');
                 redirect('admin/tambah');
             }
 
 
     }
 
-    public function lihat($id_resep)
+    public function lihat($id_resep) //Untuk melihat detail resep di front
     {   
         
         $data['judul'] = "Halaman Lihat Resep";
@@ -120,7 +120,7 @@ class Tambah extends CI_Controller
         $this->load->view('back/template/footer', $data);
     }
 
-    public function lihat_kefront($id_resep)
+    public function lihat_kefront($id_resep) //Untuk melihat detail resep di front
     {   
         
         $data['judul'] = "Halaman Lihat Resep";

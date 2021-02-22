@@ -1,7 +1,7 @@
 <div class="container-fluid">
-    <?php if($this->session->flashdata('pesan') !== null): ?>
+    <?php if($this->session->flashdata('resep') !== null): ?>
             <div class="alert alert-info mt-5">
-                <?= $this->session->flashdata('pesan') ?>
+                <?= $this->session->flashdata('resep') ?>
             </div>
     <?php endif; ?>
     <div class="row mt-5">
