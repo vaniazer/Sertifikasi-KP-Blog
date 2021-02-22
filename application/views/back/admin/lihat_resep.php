@@ -11,6 +11,8 @@
                 <?= $tambah->judul ?>
             </div>
             <div class="card-body ">
+
+               
                 <div class="form-group">
                     <p><?= $tambah->deskripsi ?></p>
                 </div>

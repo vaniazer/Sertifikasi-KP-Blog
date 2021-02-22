@@ -23,8 +23,34 @@ class Tambah extends CI_Controller
     public function ke_edit($id_resep)
     {
 
-       
+        if($this->input->post('gambar') !== null): //Jika Gambar ingin Diubah
+
+                //Upload
+                $config['upload_path']      = './assets/gambar/';
+                $config['allowed_types']      = 'gif|jpg|png';
+
+                $this->load->library('upload', $config);
+
+                if(!$this->upload->do_upload('gambar')){
+                    echo "Gagal";
+                }else{
+                    $data = $this->upload->data();
+                    $filename = $data['file_name'];
+                }
+        endif;
+        if($this->input->post('gambar') !== null):
             $data = array(
+                    'judul'     => $this->input->post('judul'),
+                    'deskripsi' => $this->input->post('deskripsi'),
+                    'gambar'    => $filename,
+                    'kategori'  => $this->input->post('kategori'),
+                    'waktu'     => $this->input->post('waktu'),
+                    'porsi'     => $this->input->post('porsi'),
+                    'cara'      => $this->input->post('cara'),
+                
+            );
+        else:
+                $data = array(
                     'judul'     => $this->input->post('judul'),
                     'deskripsi' => $this->input->post('deskripsi'),
                     'kategori'  => $this->input->post('kategori'),
@@ -33,6 +59,7 @@ class Tambah extends CI_Controller
                     'cara'      => $this->input->post('cara'),
                 
             );
+        endif;
 
         $ke_edit = $this->M_tambah->edit($id_resep, $data);
         if($ke_edit){ //Berhasil menghapus
@@ -47,12 +74,22 @@ class Tambah extends CI_Controller
 
     public function tambah()
     {
-       
+        //Upload
+        $config['upload_path']      = './assets/gambar/';
+        $config['allowed_types']      = 'gif|jpg|png';
+
+        $this->load->library('upload', $config);
+
+        if(!$this->upload->do_upload('gambar')){
+            echo "Gagal";
+        }else{
             $data = $this->upload->data();
+            $filename = $data['file_name'];
 
             $data = array(
                 'judul'     => $this->input->post('judul'),
                 'deskripsi' => $this->input->post('deskripsi'),
+                'gambar'    => $filename,
                 'kategori'  => $this->input->post('kategori'),
                 'tanggal'   => NULL,
                 'waktu'     => $this->input->post('waktu'),
@@ -101,7 +138,12 @@ class Tambah extends CI_Controller
     {   
         //Ambil Data
         $data = $this->M_tambah->get_where($id_resep)->row();
-        
+
+        //Hapus di Folder Gambar
+        $gambar = $data->gambar;
+        $path = base_url('assets/gambar/'.$gambar);
+        unlink($path);  //Hapus File
+
         //Hapus di Database
         $hapus = $this->M_tambah->hapus($id_resep);
 
