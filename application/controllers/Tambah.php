@@ -81,7 +81,7 @@ class Tambah extends CI_Controller
         
 
 
-            $data = $this->upload->data();
+            
             
 
             $data = array(
