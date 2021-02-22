@@ -12,7 +12,9 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		
+		$this->load->model('M_tambah');
+        $this->load->model('M_kategori');
+
 		$data['kategori'] = $this->M_kategori->get()->result();
 
 		//Halaman Index digunakan untuk menghitung jumlah resep dan jumlah kategori
