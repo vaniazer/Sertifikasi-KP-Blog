@@ -58,7 +58,7 @@
 
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label>Gambar</label>
+                            
                            
                         </div>
                     </div>
