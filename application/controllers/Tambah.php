@@ -80,9 +80,7 @@ class Tambah extends CI_Controller
 
         $this->load->library('upload', $config);
 
-        if(!$this->upload->do_upload('gambar')){
-            echo "Gagal";
-        }else{
+
             $data = $this->upload->data();
             $filename = $data['file_name'];
 
@@ -106,7 +104,7 @@ class Tambah extends CI_Controller
                 $this->session->set_flashdata('pesan','Gagal Menambah Data Resep');
                 redirect('admin/tambah');
             }
-        }
+
 
     }
 
