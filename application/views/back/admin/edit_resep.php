@@ -52,14 +52,14 @@
 
                 <div class="row">
                     <div class="col-md-3">
-                            <label>Gambar Sebelumnya</label>
-                            <img src="<?= base_url('assets/gambar/'.$tambah->gambar) ?>" class="img-fluid">
+                           
+                            
                     </div>
 
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Gambar</label>
-                            <input type="file" name="gambar" class="form-control">
+                           
                         </div>
                     </div>
 

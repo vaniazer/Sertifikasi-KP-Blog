@@ -74,20 +74,20 @@ class Tambah extends CI_Controller
 
     public function tambah()
     {
-        //Upload
-        $config['upload_path']      = './assets/gambar/';
-        $config['allowed_types']      = 'gif|jpg|png';
+        
+        
+       
 
-        $this->load->library('upload', $config);
+        
 
 
             $data = $this->upload->data();
-            $filename = $data['file_name'];
+            
 
             $data = array(
                 'judul'     => $this->input->post('judul'),
                 'deskripsi' => $this->input->post('deskripsi'),
-                'gambar'    => $filename,
+                
                 'kategori'  => $this->input->post('kategori'),
                 'tanggal'   => NULL,
                 'waktu'     => $this->input->post('waktu'),
